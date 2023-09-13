@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FH_index</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+
+	<script src="{{('js/javascript.js')}}"></script>
+	<link rel="stylesheet" href="{{('css/main.css')}}">
+	<style>
+		.navbar a {
+			color: black;
+			border: 0px solid transparent;
+		}
+
+		.navbar-brand {
+			width: 10%;
+		}
+
+		.navbar a:hover {
+			border-width: 0px 0px 1px 0px;
+			border-color: aqua;
+		}
+
+		.carousel-caption {
+			position: absolute;
+			bottom: 0px;
+		}
+
+		.col {
+			margin: 1%;
+		}
+
+		.row {
+			width: 90%;
+			margin: auto;
+		}
+
+		.container >.row> .col> .card {
+			border: 1px solid rgb(194, 192, 192);
+
+		}
+
+		.col-md-4 {
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+
+		.img-fluid {
+			width: 100%;
+			height: auto;
+		}
+
+		.envir {
+			border-radius: 60px;
+			border: 1px solid rgb(122, 118, 118);
+			margin-top: 5%;
+		}
+
+		.envir>.col-lg-4>img {
+			border-radius: 30px;
+			border: 2px solid rgb(212, 212, 212);
+		}
+
+
+		.blog {
+			border-radius: 20px;
+
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.rows { 
+	opacity: 0; /* use for the scrolling effect*/ 
+	transform: translate(0, 39vh);
+	transition: all 2s;
+}
+
+.active {
+	opacity: 1;
+	transform: translate(0);
+}
+
+#loader{
+	width: 100%;
+  height:100vh;
+  background:#fff url('./dna.gif') no-repeat center;
+  z-index: 9999;
+   position: fixed;
+}
+
+
+	</style>
+	
+ 
+</head>
+
+<body onload="myload()">
+	<div id="loader"> </div>
+
+		<script>
+ var loader=document.getElementById('loader');
+ function myload(){
+    setTimeout(()=>{
+     document.querySelector('#loader').remove();
+   },8000)
+ }	</script>
+	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-fluid">
+			<img src="{{ asset('./image/logo.png') }}" class="navbar-brand" alt="logo">
+			<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class=" navbar-nav mx-auto me-3 mb-2 mb-lg-0 nav justify-content-end">
+					<!-- mx-auto me-3 mb-2 mb-lg-0 nav justify-content-end  for the one in two in nav tabs -->
+					<li class="nav-item">
+						<a class="nav-link  active" aria-current="page" href="{{('/')}} ">
+							<i class="fa fa-home fa-1px" aria-hidden="true"></i>Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link " aria-current="page" href="{{url('find_doc')}}"><i class="fa fa-user-md fa-1px"
+								aria-hidden="true"></i>Find a Doctor</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url('medical-service')}}"><i class="fa fa-heartbeat fa-1px"
+								aria-hidden="true"></i> Medical Services</a>
+					</li>
+
+					<li class="nav-item dropdown navbar-brand1">
+						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false"><i class="fa fa-calendar fa-1px" aria-hidden="true"></i>
+							Appointment
+						</a>
+						<ul class="dropdown-menu ">
+							<li><a class="dropdown-item navbar-brand1" href="{{url('appointment')}}">Book Appointment</a>
+							</li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item navbar-brand1" href="{{url('appointment_status')}}">Check Appointment Status</a>
+							</li>
+
+
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{url('contact')}}"><i class="fa fa-phone-square fa-1px"
+								aria-hidden="true"></i> Contact us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url('carrier')}}"> <i class="fa fa-graduation-cap fa-1x"
+								aria-hidden="true"></i>
+							Carrier</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link navbar-brand1 " href="{{url('about')}}"> <i class="fa fa-info-circle fa-1x"
+								aria-hidden="true"></i> About Us </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+				aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+				aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+				aria-label="Slide 3"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+				aria-label="Slide 4"></button>
+		</div>
+		<div class="carousel-inner" style="height: 450px;
+	">
+			<div class="carousel-item active">
+				<img src="{{ asset('./image/scroll-1.png') }}" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="{{ asset('./image/scroll2.png') }}" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="{{ asset('./image/scroll3.png') }}" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="./image/scroll4.jpg" class="d-block w-100" alt="...">
+			</div>
+
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+
+
+
+	<!-- columns -->
+	<div class="container-fluid m-auto mb-5 ">
+		<div class="row   m-auto">
+			<div class=" col-lg-3 col-md-4 col-sm-12 m-auto  mt-4 p-0 bg-white ">
+				<div class="card">
+
+
+					<img src=" {{ asset('image/child-2.jpeg') }}" alt="...">
+					<div class="card-body text-center">
+						<h5 class="card-title">Neonatal Care</h5>
+						<p class="card-text">
+							The best of care your
+							child deserves</p>
+						<a href="{{url('child')}}" class=" btn btn-primary" target="_blank"
+							rel="noopener noreferrer">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12 m-auto  bg-white m-auto  mt-4  p-0">
+				<div class="card">
+					<img src=" {{ asset('image/speci-main.jpg') }}" class="card-img-top" alt="...">
+
+					<div class="card-body  text-center">
+						<h5 class="card-title">Speciality & Procedure</h5>
+						<p class="card-text">
+							Our Special Team Always available for you</p>
+						<a href="{{url('specility')}}" class=" btn btn-primary" target="_blank"
+							rel="noopener noreferrer">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3  col-sm-12  m-auto bg-white m-auto  mt-4  p-0">
+				<div class="card">
+					<img src="./image/scroll2.png" class="card-img-top" alt="...">
+
+					<div class="card-body text-center">
+						<h5 class="card-title ">Carrier with Future Health </h5>
+						<p class="card-text">
+							At Future Hospitals our care
+							doesn’t just stop here</p>
+						<a href="{{url('carrier')}}" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!--  health care  of the future health  -->
+
+	<div class="container mt-auto ">
+		<p class="text-center  card-header fw-bold fs-2 mb-5">
+			FH Health care
+		</p>
+		<div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+
+			<div class="carousel-inner" style="height:200px;">
+
+				<div class="carousel-item active ">
+					<div class="row  ">
+						<div class="col">
+							<div class="row envir" style="max-width: 540px;">
+								<div class="col-lg-4 p-2 m-auto ">
+									<img src="{{ asset('./image/smile1.jpeg') }}" class="img-fluid    " alt="...">
+								</div>
+								<div class="col-lg-8 envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#firstbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center"> Your Smile Encourage our Team</h5>
+											<p class="card-text d-md-block d-none">This is a wider card with supporting
+												text below.</p>
+										</a>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="col">
+							<div class="row  envir" style="max-width: 540px;">
+								<div class="col-lg-4   p-2 m-auto">
+									<img src="./image/pregant-3.webp" class="img-fluid " alt="...">
+								</div>
+								<div class="col-lg-8  envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#secondbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center p-1">God's Gift</h5>
+											<p class="card-text  d-md-block d-none m-1 p-1 ">New born Bady is the gods
+												gives
+												amazing gift to his parent's.
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<div class="row  ">
+						<div class="col">
+							<div class="row envir" style="max-width: 540px;">
+								<div class="col-lg-4 p-2 m-auto ">
+									<img src="./image/child-3.jpeg" class="img-fluid    " alt="...">
+								</div>
+								<div class="col-lg-8 envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#thirdbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center text-capitalize p-1"> child age is
+												beautiful
+												travel</h5>
+											<p class="card-text d-md-block d-none p-1">child age is one of the beautiful
+												part of our life.</p>
+										</a>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="col">
+							<div class="row envir" style="max-width: 540px;">
+								<div class="col-lg-4   p-2 m-auto">
+									<img src="./image/whilechair-2.png" class="img-fluid " alt="...">
+								</div>
+								<div class="col-lg-8  envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#forthbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center ">Belive and trust </h5>
+											<p class="card-text  d-md-block d-none "> Human's best power is there trust
+												, belive and self-confidence. They are do it enything
+
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+
+					<div class="row  ">
+						<div class="col">
+							<div class="row envir" style="max-width: 540px;">
+								<div class="col-lg-4 p-2 m-auto ">
+									<img src="./image/disabled-patient-on-wheelchair-visiting-260nw-1033650547.webp"
+										class="img-fluid    " alt="...">
+								</div>
+								<div class="col-lg-8 envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#forthdbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center"> Belive and trust</h5>
+											<p class="card-text d-md-block d-none">Human's best power is there trust ,
+												belive and self-confidence. They are do it enything
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="row envir" style="max-width: 540px;">
+								<div class="col-lg-4   p-2 m-auto">
+									<img src="./image/oldage2.png" class="img-fluid " alt="...">
+								</div>
+								<div class="col-lg-8  envir_info">
+									<div class="card-body">
+										<a href="./enviorment.html#fifthbox" target="_blank" rel="noopener noreferrer">
+											<h5 class="card-title text-center text-capitalize m-1 p-1">old age like a
+												child
+												age</h5>
+											<p class="card-text  d-md-block d-none m-1 p-1"> old age people are
+												behaviour
+												like small child's
+											</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon bg-danger" aria-hidden="true"></span>
+				<span class="visually-hidden ">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon bg-danger" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+
+
+
+
+	<!-- future health care  excellence -->
+
+
+	<div class="container mt-5 mb-5">
+
+		<div class="row ">
+			<h2 class="card-title text-center">
+				Clinical Excellence
+			</h2>
+			<div class="col-4">
+
+				<img src="./image/excellence.jpg" class="img-fluid" alt="Hospitals">
+				<h4 class="text-center">2.5 M+ </h4>
+				<p class="text-uppercase text-center fw-bold"> Patient treatment</p>
+
+			</div>
+			<div class="col-4 col-xs-4">
+				<img src="./image/excellence2.jpg" class='img-fluid  ' alt="Hospitals in total india">
+				<h4 class="text-center">22 </h4>
+				<p class="text-uppercase fw-bold  text-center fs-md-1"> State of the are Hospitals </p>
+
+
+			</div>
+			<div class="col-4">
+				<img src="./image/excellence3.jpg" class="img-fluid" alt="location & pattener">
+				<h4 class="text-center">16,000+ </h4>
+				<p id="blogs" class="text-center text-uppercase fw-bold">Associates</p>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+	<!--  Blog's and other's'  of the future health  -->
+
+	<div class="container text-center mt-3 mb-3">
+		<h2 class="card-title">Blog's</h2>
+
+
+
+		<div class="row ">
+			<div class="col ">
+				<div class="card mb-3 blog" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="./image/Esophageal-cancer.jpeg "
+								class="img-fluid rounded-start border border-dark" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body"><a href="{{url('environment#blogone')}}">
+									<h5 class="text-secondary">ESOPHAGEAL CANCER</h5>
+									<p class="text-secondary">Esophageal cancer is a serious condition that affects the
+										esophagus
+										<span class=" d-lg-inline-block d-md-none">the muscular tube that carries food
+											from the throat to the stomach.</span>
+									</p>
+									<p class="card-text float-end"><small class="text-muted float-end">Last updated 1
+											month
+											ago</small></p>
+								</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card mb-3 blog" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="./image/Heart-palpitations.jpeg"
+								class="img-fluid rounded-start border border-dark" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<a href="{{url('environment#blogtwo')}}">
+									<h5 class="text-secondary">BEYOND THE BEAT</h5>
+									<p class="text-secondary ">Heart palpitation is a prevalent condition affecting
+										millions worldwide.
+										<span class="text-secondary"> , causing anxiety and concern for many
+											individuals.</span>
+									</p>
+									<p class="card-text float-end"><small class="text-muted float-end">Last updated 15
+											min
+											ago
+
+										</small></p>
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="row  ">
+			<div class="col ">
+				<div class="card mb-3 blog" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="./image/Gastroenteritis-Demystified.jpeg"
+								class="img-fluid rounded-start border border-dark" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body"><a href="{{url('environment#blogthree')}}">
+									<h5 class="text-secondary">GASTROENTERITIS DEMYSTIFIED </h5>
+									<p class="text-secondary"> Gastroenteritis or stomach flu is a common illness
+										affecting the digestive system
+										<span class="text-secondary">Gastroenteritis, commonly known as the stomach
+											flu</span>
+									</p>
+									<p class="card-text float-end"><small class="text-muted float-end">Last updated 4
+											week
+											ago</small></p>
+							</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card mb-3 blog" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<img src="./image/Hydrocephalus.jpeg" class="img-fluid rounded-start border border-dark"
+								alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body"><a href="{{url('environment#blogfour')}}">
+									<h5 class="text-secondary">HYDROCEPHALUS</h5>
+									<p class="text-secondary">Hydrocephalus is a neurological disorder in which the
+										build-up of cerebrospinal fluid flow
+										<span class="text-secondary"> condition characterized by the accumulation of
+											cerebrospinal fluid (CSF) within the brain. </span>
+									</p>
+									<p class="card-text float-end"><small class="text-muted float-end">Last updated 1
+											year
+											ago
+
+										</small></p>
+								</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="d-block ">
+			<button class="  btn btn-outline-success d-md-none d-sm-block  m-auto">Read More >></button>
+		</div>
+	</div>
+	</div>
+	</div>
+
+
+
+	<!-- news and event  of future hospital  -->
+
+
+
+	<section  class="about-section-padding  ">
+		<div class="container  ">
+			<div class="col-lg-8 col-md-12 col-12 pe-lg-5 mt-md-5 ">
+				<div class="about-text">
+					<h2>News&Events</h2>
+					<p>Read More About Narayana Health's Events, Programs, and Coverage in the News</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-12 col-12">
+					<div class="about-img">
+						<img src="./image/news5.png" alt="" class="img-fluid">
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-12 ps-lg-auto mt-md-5">
+					<div class="about-text">
+						<h5>‘Bentall Surgery’ performed successfully at Future Health Hospital.</h5>
+						<p><a href="{{url('environment#newzz')}}" style="color: black;" class="btn btn-info">LEARN MORE</a></p>
+
+						<h5>66-year-old patient gets new lease of life through TAVI at Future Health Hospital
+						</h5>
+						<p><a href="{{url('environment#newzz')}}" style="color: black;" class="btn btn-info">LEARN MORE</a></p>
+
+					</div>
+				</div>
+
+				<div class="col-lg-12 col-md-12 col-12 ps-lg-auto mt-md-5">
+					<div class="about-text">
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	<section  class="about-section-padding   mt-5 ">
+		<div class="container  ">
+
+			<div class="row">
+				<div class="col-lg-6 col-md-12 col-12">
+					<div class="about-img">
+						<img src="./image/download (1).jpeg" alt="" class="img-fluid rounded-start">
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-12 ps-lg-auto mt-md-5 p-4 "
+					style="border-bottom: 1px solid lightseagreen; ">
+					<div class="about-text">
+						<h5>CSR at Future Health Hospital</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam deserunt aperiam itaque
+							adipisci, ea ut rerum consequatur officia esse nesciunt magni error asperiores architecto
+							aliquam nulla cumque, cupiditate impedit ullam?</p>
+						<a href="{{url('child')}}"><button class="btn btn-info text-dark mt-5 ">LEARN
+								MORE</button></a>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-12 col-12 ps-lg-auto mt-md-5 p-4">
+					<div class="about-text">
+						<h5>Baby's Miracale journey hope at Future Health Hospital</h5>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate esse vel quam temporibus
+							eligendi ipsa, aperiam illo ut tempora, adipisci tempore nemo vitae. Debitis assumenda
+							consequatur veniam tenetur dolorem cupiditate.</p>
+
+						<a href="{{url('child')}}"><button class="btn btn-info text-dark mt-5">LEARN
+								MORE</button></a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-12">
+					<div class="about-img">
+						<img src="./image/child-back.jpg" alt="" class="card-img-top">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<!--  footer start  -->
+<footer>
+
+	<div class="container-fluid  mt-5  ">
+
+		<div class="row pt-4">
+
+			<div class="col-xl-3 col-md-3 col-sm-3 footer  ">
+				<div class=" fs-6 fw-bold  mb-2">Quick Link</div>
+				
+				<p><a href="{{url('find_doc')}}"> Find A Doctor</a></p>
+				<p><a href="{{url('appointment')}}">Book an Appointment</a> </p>
+				<p><a href="{{url('query')}}">Make an Enquiry</a></p> 
+				<p><a href="{{url('query')}}">Feedback</a></p>
+				<p><a href="{{url('enviorment_#blog')}}">Blog's</a></p>
+				<p><a href="{{url('carrier')}}">Career</a> </p>
+			</div>
+
+			<div class="col-xl-3 col-md-3 col-sm-3 footer ">
+				<div class="fs-6 fw-bold  mb-2">FH CARE </div>
+				<p><a href="{{url('hernia')}}">Hernia</a></p>
+				<p><a href="{{url('lung')}}">Lung Cancer</a></p>
+				<p><a href="{{url('brain')}}">Brain Tumour</a> </p>
+				<p><a href="{{url('live')}}">Live Cancer</a></p>
+				<p><a href="{{url('heart')}}">Heart Attack</a> </p>
+				<p><a href="{{url('urinary')}}">Urinary Problem</a></p> 
+				<p><a href="{{url('kidney')}}">Kidney Transplant</a></p> 
+			</div>
+			<div class="col-xl-3 col-md-3 col-sm-3 footer ">
+				<div class="fs-6 fw-bold mb-2 ">Excellence Center</div>
+				<p><a href="{{url('cadiology')}}">Cadiology</a></p> 
+				<p><a href="{{url('cardiac')}}">Cardiac Surgery</a></p>
+				<p><a href="{{url('Neurology')}}">Neurology</a></p>
+				<p><a href="{{url('Neurosurgery')}}">Neurosurgery</a></p>
+				<p><a href="{{url('Ortho')}}">Orthopadics</a></p>
+				<p><a href="{{url('nephro')}}">Nephrology</a></p>
+			</div>
+			<div class="col-xl-3 col-md-3 col-sm-3  footer">
+				<div class="fs-6 fw-bold  mb-2"> Medical Profession</div>
+				<p><a href="{{url('about')}}">About</a></p>
+				<p><a href="{{url('contact')}}">Contact us</a></p>
+				<p><a href="{{url('/about#mission')}}">Our Mission</a></p>
+				
+			</div>
+		</div>
+	</div>
+	<div class=" bottom p-4">
+		<a href="{{url('about#rights')}}" class="p-2 fw-bold "> <span class="text-primary fw-bold fs-4">© </span> Future Hopital Ltd |All Rights Reserve </a>
+		<span class="float-end">
+			<a href="{{url('about#terms')}}" class="p-2 fw-bold"> Term & Conditions</a>
+			<a href="{{url('about#policy')}}" class="p-2 fw-bold"> Privacy Policy</a>
+		</span>
+	</div>
+</footer>
+
+
+
+<!-- end Footer -->
+
+	<!-- contacting social meadia logo and link  -->
+
+	<div class="container-fluid">
+	
+		<div class="contact  position-relative">
+			<span class="position-absolute position-fixed top-50 start-0 translate-middle-y">
+
+				<a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="right" title="You Tube">
+					<p class="fa fa-youtube mt-2 mb-2 d-block"></p>
+				</a>
+
+				<a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"
+				data-toggle="tooltip" data-placement="right" title="Facebook">
+					<p class="fa fa-facebook mt-2 mb-2 d-block"></p>
+				</a>
+
+				<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+				data-toggle="tooltip" data-placement="right" title="Instagram">
+					<p class="fa fa-instagram mt-2 mb-2 d-block"></p>
+				</a>
+
+				<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"
+				data-toggle="tooltip" data-placement="right" title="Twitter">
+					<p class="fa fa-twitter mt-2 mb-2 d-block"></p>
+				</a>
+			</span>
+		</div>
+
+
+		<div class=" contact position-relative">
+			<span class="position-absolute  position-fixed top-50 end-0 translate-middle end-5">
+				<a href="https://api.whatsapp.com/send/?phone=%2B919767631826&text=welcome%27to+Future+Health+consultancy+Always+ready+for+your+help&type=phone_number&app_absent=0
+	" target="_blank">
+					<p class="fa fa-whatsapp mt-2 mb-2 d-block"></p>
+				</a>
+				<a href="tel:+9197-6763-1826" target="_blank">
+					<p class="fa fa-phone mt-2 mb-2 d-block"></p>
+				</a>
+			</span>
+		</div>
+
+
+		<!--  end here contact related html  -->
+
+
+	</div>
+
+
+
+
+	</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+</html>

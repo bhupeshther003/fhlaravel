@@ -1,0 +1,353 @@
+/*  page srolling  bottom to top */
+
+#scrollToTopButton {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 9999;
+	font-size: 18px;
+	width: 40px;
+	height: 40px;
+	background-color: #eee9e9;
+	box-shadow: 1ch 1ch 2ch black;;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 50%;
+	cursor: pointer;
+	padding:1px;
+	text-align: center;
+  }
+  
+  #scrollToTopButton:hover {
+	background-color: #eff311;
+  }
+
+
+/*  brightness mode */
+
+
+body {
+	background-color: #fff;
+	color: #000;
+  }
+  
+  body.dark-mode {
+	background-color: #333;
+	color: #fff;
+  }
+  body.dark-mode footer{
+	color:white;
+	background-color:#4b4a4a;
+}
+body.dark-mode .navbar{
+	background-color:#554d4d;
+}
+body.dark-mode .navbar a{
+	color:white
+}
+body.dark-mode .text {
+	color:white;	
+}
+body.dark-mode .navbar-back {   
+	background-color:#554d4d;          /* appointment tabs */
+}
+body.dark-mode .navbar-back a:hover {
+	background-color:#554d4d;
+	color:rgb(233, 91, 66) ;
+}
+body.dark-mode .navbar a:hover{
+	color:rgb(233, 91, 66) ;
+}
+
+body.dark-mode footer a{
+	color:white
+}
+body.dark-mode a:hover{
+	color:blue ;
+}
+
+  
+
+/* index page nav bar  */
+.rows { 
+	opacity: 0; /* use for the scrolling effect*/ 
+	transform: translate(0, 39vh);
+	transition: all 2s;
+}
+
+.active {
+	opacity: 1;
+	transform: translate(0);
+}
+
+.navbar a {
+	color: black;
+ border:0px solid transparent;	
+}
+
+.navbar-brand {
+	width: 10%;
+}
+
+.navbar a:hover{
+	
+	border-width: 0px 0px 1px 0px;
+	border-color:aqua;
+
+}
+
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	background-color: rgb(202, 202, 204);
+}
+
+			.carousel-item>img{
+	width: 98%;
+  /* height: 100%; */
+  object-fit: cover;
+  background-size:contain;
+  transition: transform 0.5s ease;
+  height:500px;
+}
+		
+
+footer{
+	background-color:rgb(212, 212, 212);
+}
+.bottom{
+	background-color:rgb(180, 180, 182);
+}
+
+footer a{
+	text-decoration: none;
+	color:#2b2727;
+}
+footer a:hover{
+	text-decoration:underline;
+	color:blue;
+}
+
+
+ /* end of navbar code*/
+
+
+
+
+
+
+
+
+
+/* start of
+}
+
+/*  End index page Code */
+
+
+
+
+
+
+
+/* contact related css */
+
+
+.contact .fa{
+	font-size: 30px;
+	z-index:1;
+	
+}
+  .contact > .top-50 > a > p:hover{
+	background-color:  rgb(230,33,23);
+	border-radius: 20px;
+ }
+ .contact > .top-50 > a +a > p:hover{
+	background-color: rgb(24, 119, 242);
+	border-radius: 20px;
+ }
+ .contact > .top-50 > a +a+a >p:hover{
+	background-color: rgb(253, 141, 178);
+	border-radius: 20px;
+ }
+ .contact > .top-50 > a +a+a+a> P:hover{
+	background-color: rgb(0, 183, 255);
+	border-radius: 20px;
+ }
+ .contact > .end-0 > a>p:hover{
+	background-color: rgb(37, 211, 102);
+	border-radius:10px;	
+ }
+ .contact > .end-0 > a+a>p:hover{
+	background-color: rgb(145, 175, 9);
+	border-radius: 20px;
+ } 
+ .contact > .top-50 > a{
+	text-decoration: none;
+	color:black;
+ }
+
+
+ /*  end here contact ralated css */
+
+
+
+
+
+
+ /*  Speciliies page css */
+
+
+ /*  Speciliies page css */
+
+
+
+ .container>.row>.col-lg-6>h2{
+	color:rgb(13, 3, 58);
+	border-width:0px 0px 3px 0px ;
+	border-style: groove;
+	border-color:aqua;
+ }
+
+ .container>.row>.col-lg-6>.row>.col>h3{
+ color: rgb(12, 13, 88);
+ 
+ }
+
+ .container>.row>.col-lg-6>.row>.col>h3::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+	
+    border:1px solid #000;
+	background-color: blue;
+    transition: width .3s;
+}
+  
+.container>.row>.col-lg-6>.row>.col>h3:hover::after{
+    width: 100%;
+	color: rgb(240, 6, 6);
+transition: width .3s;
+}
+
+.container>.row>.col-lg-6>.row>.col>.row{
+color:rgb(2, 57, 121);
+}
+
+.container>.row>.col-lg-6>.row>.col>.row{
+	height: 4rem;
+}
+.container>.row>.col-lg-6>.row>.col>.row:hover{
+	background-color: rgb(66, 137, 196);
+	color:aliceblue;
+	border-radius:10px;
+	padding:3px;
+	
+}
+
+/* end speciliest */
+
+
+
+
+/* service */
+
+.service_page_hover{
+width:270px;
+margin: 1px;
+height: 70px;
+
+border-radius:10px;
+text-align: center;
+border:1px solid rgb(109, 94, 94);
+}
+
+
+:nth-child(odd).service_page_hover{
+	background-color: rgb(39, 185, 211);
+}
+:nth-child(even).service_page_hover{
+	background-color: rgb(47, 100, 199);
+}
+.service_page_hover>a{
+	text-decoration: none;
+	color:black;
+	padding:10px;
+
+
+}
+
+.service_page_hover:hover{
+	background-color: rgb(66, 137, 196);
+	border-radius:10px;
+	padding:10px;
+	color:white;
+	border:1px solid rgb(20, 4, 255);
+}
+.service_page_hover>a:hover{
+	color:white
+}
+ 
+
+/*  End envirment page  */
+
+
+
+/*  environment page  */
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		.navbar a {
+			color: black;
+		}
+
+
+
+		.navbar-brand {
+			width: 10%;
+		}
+
+		.envir_info > .card-body > a{
+			text-decoration: none;
+			color: black;
+			/* border:1px solid blue; */
+		}
+		
+		
+
+		.carousel-caption {
+			position: absolute;
+			bottom: 55%;
+		}
+
+		.col {
+			/* border:1px solid black; */
+			margin: 1%;
+		}
+
+
+		.container .row .col .card {
+			border: 1px solid rgb(194, 192, 192);
+
+		}
+
+
+		.item>.card>img {
+			width: 100%;
+			aspect-ratio: 3/2;
+			object-fit: contain;
+
+		}
+
+
+		.d-sm-flex>img{
+			width:80%;
+		}
+	
+
+		/*  end environment page code */
